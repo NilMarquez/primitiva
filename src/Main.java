@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 /**
  * Programa de simulació de La Primitiva
  * @auhor //TODO: Nom Alumne
@@ -7,14 +8,18 @@ import java.util.Scanner;
  * @date //TODO: data
  */
 //TODO: Fer refractor per canviar el nom de la classe
-public class CognomNom_Primitiva {
+public class Main {
     /**
      * Mètode main executable
      * @param args
      * @since 1.0
      */
+
+    public static int aposta = 0;
+
     public static void main(String[] args) {
         menuPrincipal();
+
     }
 
     /**
@@ -51,7 +56,7 @@ public class CognomNom_Primitiva {
         System.out.println("Introdueix la teva aposta: ");
         int[] aposta = null;
 
-        //TODO: Fer el codi del mètode
+        //Inici primera apuesta
 
         return aposta;
     }
