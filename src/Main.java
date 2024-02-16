@@ -7,13 +7,17 @@ import java.util.Scanner;
  * @date //TODO: data
  */
 //TODO: Fer refractor per canviar el nom de la classe
-public class CognomNom_Primitiva {
+public class Main {
     /**
      * Mètode main executable
      * @param args
      * @since 1.0
      */
+
+    public int[] guanyador=new int[6];
+    public int reintegro;
     public static void main(String[] args) {
+
         menuPrincipal();
     }
 
@@ -65,6 +69,7 @@ public class CognomNom_Primitiva {
         int[] combinacio = null;
 
         //TODO: Fer el codi del mètode
+
 
         return combinacio;
     }
