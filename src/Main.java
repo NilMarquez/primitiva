@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Random;
 /**
  * Programa de simulació de La Primitiva
  * @auhor Nil Marquez & Roger Bustos
@@ -13,8 +13,11 @@ public class Main {
      * @param args
      * @since 1.0
      */
+
+
     public static void main(String[] args) {
         menuPrincipal();
+
     }
 
     /**
@@ -83,14 +86,33 @@ public class Main {
     }
 
     /**
-     * //TODO: Completar
-     * @return //TODO: Completar
+     * //TODO: Genera la combinació guanyadora i el seu reintegrament sense repetir-hi cap numeró
+     * @return //TODO: Retorna la combinació guanyadora i el seu reintegrament
      * @since 1.0
      */
     private static int[] calcularCombinacioGuanyadora(){
-        int[] combinacio = null;
+        int[] combinacio = new int [7];
 
         //TODO: Fer el codi del mètode
+        Random random = new Random();
+        combinacio[0] = random.nextInt((49 + 1) - 1) + 1;
+        for (int i=1; i<6; i++) {
+            boolean diff=false;
+
+            do {
+                combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
+                for (int j=0; j<i; j++){
+                    if (combinacio[j]==combinacio[i]){
+                        break;
+                    } else if (j==i-1 && combinacio[j]!=combinacio[i]){
+                        diff=true;
+                        break;
+                    }
+                }
+            }while(!diff);
+        }
+
+        combinacio[6] = random.nextInt((10));
 
         return combinacio;
     }
