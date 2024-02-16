@@ -105,14 +105,20 @@ public class Main {
 
         //Comprobar encerts a la combinació
         //TODO: Fer el codi del mètode
-        for (int i=0; i<7; i++){
-            if (){
-
+        for (int i=0; i<6; i++){
+            for (int j=0; j<6; j++){
+                if (aposta[i]==combinacioGuanyadora[j]){
+                    encerts++;
+                    break;
+                }
             }
         }
 
         //Comprobar reintegrament
         //TODO: Fer el codi del mètode
+        if (aposta[6]==combinacioGuanyadora[6]){
+            reintregrament=true;
+        }
 
         //Calcular premi
         //TODO: Fer el codi del mètode
