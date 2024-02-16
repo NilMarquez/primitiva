@@ -105,6 +105,11 @@ public class Main {
 
         //Comprobar encerts a la combinació
         //TODO: Fer el codi del mètode
+        for (int i=0; i<7; i++){
+            if (){
+
+            }
+        }
 
         //Comprobar reintegrament
         //TODO: Fer el codi del mètode
