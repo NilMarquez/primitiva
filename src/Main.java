@@ -99,6 +99,7 @@ public class Main {
         for (int i=1; i<6; i++) {
             boolean diff=false;
 
+            
             do {
                 combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
                 for (int j=0; j<i; j++){
