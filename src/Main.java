@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @date //TODO: data
  */
 //TODO: Fer refractor per canviar el nom de la classe
-public class CognomNom_Primitiva {
+public class Main {
     /**
      * Mètode main executable
      * @param args
