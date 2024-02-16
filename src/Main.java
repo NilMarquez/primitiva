@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 /**
  * Programa de simulació de La Primitiva
- * @auhor //TODO: Nom Alumne
+ * @auhor Nil Marquez & Roger Bustos
  * @version 1.0
- * @date //TODO: data
+ * @date 16/02/2024
  */
 //TODO: Fer refractor per canviar el nom de la classe
 public class Main {
@@ -44,7 +44,8 @@ public class Main {
 
     /**
      * //TODO: Completasr
-     * @return //TODO: Completar
+     * @return //TODO: Aquest return guarda les dades introduïdes per l'usuari al mètode d'introduitAposta,
+     * i les fa servir en el següents mètodes per calcular la combinació i comprobar encerts.
      * @since 1.0
      */
     private static int[] introduirAposta(){
