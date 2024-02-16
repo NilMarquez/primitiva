@@ -49,9 +49,34 @@ public class Main {
      */
     private static int[] introduirAposta(){
         System.out.println("Introdueix la teva aposta: ");
-        int[] aposta = null;
+        int[] aposta = new int[7];
+        boolean[] numerosUsats = new boolean[50];
+        int reintegrament;
+        Scanner scanner = new Scanner(System.in);
 
-        //TODO: Fer el codi del mètode
+        System.out.println("Introdueix 6 números entre 1 y 49 (sense repetir):");
+        for (int i = 0; i < 6; i++) {
+            int numero;
+            do {
+                System.out.print("Número " + (i + 1) + ": ");
+                numero = scanner.nextInt();
+                if (numero < 1 || numero > 49 || numerosUsats[numero - 1]) {
+                    System.out.println("Número invalid o repetit, intenta-ho de nou");
+                }
+            } while (numero < 1 || numero > 49 || numerosUsats[numero - 1]);
+            aposta[i] = numero;
+            numerosUsats[numero - 1] = true;
+        }
+
+        System.out.println("Introdueix un número entre el 0 i 9 per reintegre");
+        do {
+            System.out.print("Reintegre: ");
+            reintegrament = scanner.nextInt();
+            if (reintegrament < 0 || reintegrament > 9) {
+                System.out.println("Número inválido. Inténtalo de nuevo.");
+            }
+        } while (reintegrament < 0 || reintegrament > 9);
+        aposta[6] = reintegrament;
 
         return aposta;
     }
