@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Random;
 /**
  * Programa de simulació de La Primitiva
  * @auhor //TODO: Nom Alumne
@@ -14,8 +14,7 @@ public class Main {
      * @since 1.0
      */
 
-    public int[] guanyador=new int[6];
-    public int reintegro;
+
     public static void main(String[] args) {
 
         menuPrincipal();
@@ -66,9 +65,26 @@ public class Main {
      * @since 1.0
      */
     private static int[] calcularCombinacioGuanyadora(){
-        int[] combinacio = null;
+        int[] combinacio = new int [7];
 
         //TODO: Fer el codi del mètode
+        Random random = new Random();
+        for (int i=0; i<6; i++) {
+            boolean diff=false;
+            do {
+                combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
+                for (int j=0; j<=i; j++){
+                    if (combinacio[j]==combinacio[j]){
+                        break;
+                    } else if (j==i && combinacio[j]!=combinacio[j]){
+                        diff=true;
+                        break;
+                    }
+                }
+            }while(!diff);
+
+        }
+
 
 
         return combinacio;
