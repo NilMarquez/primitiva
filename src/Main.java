@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-
 /**
  * Programa de simulació de La Primitiva
- * @auhor //TODO: Nom Alumne
+ * @auhor Nil Marquez & Roger Bustos
  * @version 1.0
- * @date //TODO: data
+ * @date 16/02/2024
  */
 //TODO: Fer refractor per canviar el nom de la classe
 public class Main {
@@ -14,12 +13,8 @@ public class Main {
      * @param args
      * @since 1.0
      */
-
-    public static int aposta = 0;
-
     public static void main(String[] args) {
         menuPrincipal();
-
     }
 
     /**
@@ -49,14 +44,40 @@ public class Main {
 
     /**
      * //TODO: Completasr
-     * @return //TODO: Completar
+     * @return //TODO: Aquest return guarda les dades introduïdes per l'usuari al mètode d'introduitAposta,
+     * i les fa servir en el següents mètodes per calcular la combinació i comprobar encerts.
      * @since 1.0
      */
     private static int[] introduirAposta(){
         System.out.println("Introdueix la teva aposta: ");
-        int[] aposta = null;
+        int[] aposta = new int[7];
+        boolean[] numerosUsats = new boolean[50];
+        int reintegrament;
+        Scanner scanner = new Scanner(System.in);
 
-        //Inici primera apuesta
+        System.out.println("Introdueix 6 números entre 1 y 49 (sense repetir):");
+        for (int i = 0; i < 6; i++) {
+            int numero;
+            do {
+                System.out.print("Número " + (i + 1) + ": ");
+                numero = scanner.nextInt();
+                if (numero < 1 || numero > 49 || numerosUsats[numero - 1]) {
+                    System.out.println("Número invalid o repetit, intenta-ho de nou");
+                }
+            } while (numero < 1 || numero > 49 || numerosUsats[numero - 1]);
+            aposta[i] = numero;
+            numerosUsats[numero - 1] = true;
+        }
+
+        System.out.println("Introdueix un número entre el 0 i 9 per reintegre");
+        do {
+            System.out.print("Reintegre: ");
+            reintegrament = scanner.nextInt();
+            if (reintegrament < 0 || reintegrament > 9) {
+                System.out.println("Número inválido. Inténtalo de nuevo.");
+            }
+        } while (reintegrament < 0 || reintegrament > 9);
+        aposta[6] = reintegrament;
 
         return aposta;
     }
