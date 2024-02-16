@@ -60,8 +60,8 @@ public class Main {
     }
 
     /**
-     * //TODO: Completar
-     * @return //TODO: Completar
+     * //TODO: Genera la combinació guanyadora i el seu reintegrament sense repetir-hi cap numeró
+     * @return //TODO: Retorna la combinació guanyadora i el seu reintegrament
      * @since 1.0
      */
     private static int[] calcularCombinacioGuanyadora(){
@@ -87,9 +87,6 @@ public class Main {
         }
 
         combinacio[6] = random.nextInt((10));
-
-
-
 
         return combinacio;
     }
