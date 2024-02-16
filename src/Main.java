@@ -16,8 +16,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-
         menuPrincipal();
+
     }
 
     /**
@@ -69,21 +69,25 @@ public class Main {
 
         //TODO: Fer el codi del mètode
         Random random = new Random();
-        for (int i=0; i<6; i++) {
+        combinacio[0] = random.nextInt((49 + 1) - 1) + 1;
+        for (int i=1; i<6; i++) {
             boolean diff=false;
+
             do {
                 combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
-                for (int j=0; j<=i; j++){
-                    if (combinacio[j]==combinacio[j]){
+                for (int j=0; j<i; j++){
+                    if (combinacio[j]==combinacio[i]){
                         break;
-                    } else if (j==i && combinacio[j]!=combinacio[j]){
+                    } else if (j==i-1 && combinacio[j]!=combinacio[i]){
                         diff=true;
                         break;
                     }
                 }
             }while(!diff);
-
         }
+
+        combinacio[6] = random.nextInt((10));
+
 
 
 
