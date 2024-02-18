@@ -46,7 +46,7 @@ public class Main {
     }
 
     /**
-     * //TODO: Completasr
+     * //Serveix per a guardar els paràmetres introduits per l'usuari per a endevinar
      * @return //TODO: Aquest return guarda les dades introduïdes per l'usuari al mètode d'introduitAposta,
      * i les fa servir en el següents mètodes per calcular la combinació i comprobar encerts.
      * @since 1.0
@@ -86,7 +86,7 @@ public class Main {
     }
 
     /**
-     * //TODO: Genera la combinació guanyadora i el seu reintegrament sense repetir-hi cap numeró
+     * //Genera la combinació guanyadora de la primitiva
      * @return //TODO: Retorna la combinació guanyadora i el seu reintegrament
      * @since 1.0
      */
@@ -118,7 +118,7 @@ public class Main {
     }
 
     /**
-     * //TODO: Completar
+     * //Calcula el premi final que s'endú l'usuari
      * @param aposta //TODO: Completar //aposta que ha generat o fet l'usuari
      * @param combinacioGuanyadora //TODO: Completar// La combinació que conté el premi
      * @return //TODO: Completar el premi total que s'endú el guanyador
