@@ -99,7 +99,6 @@ public class Main {
         for (int i=1; i<6; i++) {
             boolean diff=false;
 
-            
             do {
                 combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
                 for (int j=0; j<i; j++){
@@ -120,9 +119,9 @@ public class Main {
 
     /**
      * //TODO: Completar
-     * @param aposta //TODO: Completar
-     * @param combinacioGuanyadora //TODO: Completar
-     * @return //TODO: Completar
+     * @param aposta //TODO: Completar //aposta que ha generat o fet l'usuari
+     * @param combinacioGuanyadora //TODO: Completar// La combinació que conté el premi
+     * @return //TODO: Completar el premi total que s'endú el guanyador
      * @since 1.0
      */
     private static int comprovarEncerts(int[] aposta, int[] combinacioGuanyadora){
@@ -132,12 +131,28 @@ public class Main {
 
         //Comprobar encerts a la combinació
         //TODO: Fer el codi del mètode
+        for (int i=0; i<6; i++){
+            for (int j=0; j<6; j++){
+                if (aposta[i]==combinacioGuanyadora[j]){
+                    encerts++;
+                    break;
+                }
+            }
+        }
 
         //Comprobar reintegrament
         //TODO: Fer el codi del mètode
+        if (aposta[6]==combinacioGuanyadora[6]){
+            reintregrament=true;
+        }
 
         //Calcular premi
         //TODO: Fer el codi del mètode
+
+        premi=premi+(encerts*20);
+        if (reintregrament){
+            premi=premi+6;
+        }
 
         return premi;
     }
