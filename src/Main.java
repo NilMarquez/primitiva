@@ -1,50 +1,84 @@
 import java.util.Scanner;
-
+import java.util.Random;
 /**
  * Programa de simulació de La Primitiva
  * @auhor Nil Marquez & Roger Bustos
+ * Link github: https://github.com/NilMarquez/primitiva
  * @version 1.0
  * @date 16/02/2024
  */
-//TODO: Fer refractor per canviar el nom de la classe
+
 public class Main {
     /**
      * Mètode main executable
      * @param args
      * @since 1.0
      */
+
+
     public static void main(String[] args) {
         menuPrincipal();
+
     }
 
     /**
-     * //TODO: Completar
+     * Aquest mètode representa el menú principal.
+     * Permet a l'usuari seleccionar entre dues opcions: jugar o sortir.
+     * Si l'usuari selecciona jugar, es crida al mètode jugar().
      * @since 1.0
      */
     private static void menuPrincipal(){
-        System.out.println("***** PRIMITIVA ******");
+        Scanner scanner = new Scanner(System.in);
 
+        int opcio;
+        do {
+            System.out.println("***** PRIMITIVA ******");
+            System.out.println("1. Jugar");
+            System.out.println("2. Sortir");
+            System.out.print("Selecciona una opció: ");
+
+            opcio = scanner.nextInt();
+
+            switch (opcio) {
+                case 1:
+                    jugar();
+                    break;
+                case 2:
+                    System.out.println("Sortint del programa, Adeu!");
+                    break;
+                default:
+                    System.out.println(" no valida. Intenta-ho de nou");
+            }
+
+        } while (opcio != 2);
+    }
+
+    /**
+     * En aquest mètode l'usuari pot introduir una aposta que calcula la combinació guanyadora.
+     * Es mostra aquesta combinació i imprimeix per pantalla el premi i els encerts de l'usuari.
+     * @since 1.0
+     */
+    private static void jugar() {
         int[] aposta = introduirAposta();
         int[] combinacioGuanyadora = calcularCombinacioGuanyadora();
         int premi;
 
         if (combinacioGuanyadora != null) {
-            System.out.println("La combinació ganadora és: ");
+            System.out.println("La combinació guayadora és: ");
 
             for (int i = 0; i < combinacioGuanyadora.length - 1; i++) {
                 System.out.print(combinacioGuanyadora[i] + " ");
             }
 
-            System.out.println("Reintegrament " + combinacioGuanyadora[combinacioGuanyadora.length - 1]);
+            System.out.println("Reintegre " + combinacioGuanyadora[combinacioGuanyadora.length - 1]);
         }
 
         premi = comprovarEncerts(aposta, combinacioGuanyadora);
-        System.out.println("El teu premi és: "+premi+" €");
+        System.out.println("El teu premi és: " + premi + " €");
     }
-
     /**
-     * //TODO: Completasr
-     * @return //TODO: Aquest return guarda les dades introduïdes per l'usuari al mètode d'introduitAposta,
+     * //Serveix per a guardar els paràmetres introduits per l'usuari per a endevinar
+     * @return Aquest return guarda les dades introduïdes per l'usuari al mètode d'introduitAposta,
      * i les fa servir en el següents mètodes per calcular la combinació i comprobar encerts.
      * @since 1.0
      */
@@ -83,23 +117,42 @@ public class Main {
     }
 
     /**
-     * //TODO: Completar
-     * @return //TODO: Completar
+     * //Genera la combinació guanyadora de la primitiva
+     * @return Retorna la combinació guanyadora i el seu reintegrament
      * @since 1.0
      */
     private static int[] calcularCombinacioGuanyadora(){
-        int[] combinacio = null;
+        int[] combinacio = new int [7];
 
         //TODO: Fer el codi del mètode
+        Random random = new Random();
+        combinacio[0] = random.nextInt((49 + 1) - 1) + 1;
+        for (int i=1; i<6; i++) {
+            boolean diff=false;
+
+            do {
+                combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
+                for (int j=0; j<i; j++){
+                    if (combinacio[j]==combinacio[i]){
+                        break;
+                    } else if (j==i-1 && combinacio[j]!=combinacio[i]){
+                        diff=true;
+                        break;
+                    }
+                }
+            }while(!diff);
+        }
+
+        combinacio[6] = random.nextInt((10));
 
         return combinacio;
     }
 
     /**
-     * //TODO: Completar
-     * @param aposta //TODO: Completar
-     * @param combinacioGuanyadora //TODO: Completar
-     * @return //TODO: Completar
+     * //Calcula el premi final que s'endú l'usuari
+     * @param aposta  aposta que ha generat o fet l'usuari
+     * @param combinacioGuanyadora La combinació que conté el premi
+     * @return  el premi total que s'endú el guanyador
      * @since 1.0
      */
     private static int comprovarEncerts(int[] aposta, int[] combinacioGuanyadora){
@@ -108,13 +161,26 @@ public class Main {
         boolean reintregrament = false;
 
         //Comprobar encerts a la combinació
-        //TODO: Fer el codi del mètode
+        for (int i=0; i<6; i++){
+            for (int j=0; j<6; j++){
+                if (aposta[i]==combinacioGuanyadora[j]){
+                    encerts++;
+                    break;
+                }
+            }
+        }
 
         //Comprobar reintegrament
-        //TODO: Fer el codi del mètode
+        if (aposta[6]==combinacioGuanyadora[6]){
+            reintregrament=true;
+        }
 
         //Calcular premi
-        //TODO: Fer el codi del mètode
+
+        premi=premi+(encerts*20);
+        if (reintregrament){
+            premi=premi+6;
+        }
 
         return premi;
     }
