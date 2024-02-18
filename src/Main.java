@@ -152,7 +152,7 @@ public class Main {
      * @param aposta Completar //aposta que ha generat o fet l'usuari
      * @param combinacioGuanyadora Completar// La combinació que conté el premi
      * @return Completar el premi total que s'endú el guanyador
->>>>>>> roger
+
      * @since 1.0
      */
     private static int comprovarEncerts(int[] aposta, int[] combinacioGuanyadora){
@@ -161,10 +161,7 @@ public class Main {
         boolean reintregrament = false;
 
         //Comprobar encerts a la combinació
-<<<<<<<<< Temporary merge branch 1
-        //TODO: Fer el codi del mètode
-=========
->>>>>>>>> Temporary merge branch 2
+        
         for (int i=0; i<6; i++){
             for (int j=0; j<6; j++){
                 if (aposta[i]==combinacioGuanyadora[j]){
@@ -174,11 +171,9 @@ public class Main {
             }
         }
 
-        //Comprobar reintegrament
-<<<<<<<<< Temporary merge branch 1
+
         //TODO: Fer el codi del mètode
-=========
->>>>>>>>> Temporary merge branch 2
+
         if (aposta[6]==combinacioGuanyadora[6]){
             reintregrament=true;
         }
