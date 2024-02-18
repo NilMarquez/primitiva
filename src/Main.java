@@ -93,9 +93,9 @@ public class Main {
 
     /**
      * //TODO: Completar
-     * @param aposta //TODO: Completar
-     * @param combinacioGuanyadora //TODO: Completar
-     * @return //TODO: Completar
+     * @param aposta //TODO: Completar //aposta que ha generat o fet l'usuari
+     * @param combinacioGuanyadora //TODO: Completar// La combinació que conté el premi
+     * @return //TODO: Completar el premi total que s'endú el guanyador
      * @since 1.0
      */
     private static int comprovarEncerts(int[] aposta, int[] combinacioGuanyadora){
@@ -122,6 +122,11 @@ public class Main {
 
         //Calcular premi
         //TODO: Fer el codi del mètode
+
+        premi=premi+(encerts*20);
+        if (reintregrament){
+            premi=premi+6;
+        }
 
         return premi;
     }
