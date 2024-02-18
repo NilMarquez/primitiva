@@ -7,10 +7,6 @@ import java.util.Random;
  * @version 1.0
  * @date 16/02/2024
  */
-<<<<<<< HEAD
-=======
-//TODO: Fer refractor per canviar el nom de la classe
->>>>>>> roger
 
 public class Main {
     /**
@@ -18,8 +14,11 @@ public class Main {
      * @param args
      * @since 1.0
      */
+
+
     public static void main(String[] args) {
         menuPrincipal();
+
     }
 
     /**
@@ -48,11 +47,7 @@ public class Main {
                     System.out.println("Sortint del programa, Adeu!");
                     break;
                 default:
-<<<<<<< HEAD
-                    System.out.println(" no valida. Intenta-ho de nou");
-=======
                     System.out.println("Opció no valida. Intenta-ho de nou");
->>>>>>> roger
             }
 
         } while (opcio != 2);
@@ -82,11 +77,7 @@ public class Main {
         System.out.println("El teu premi és: " + premi + " €");
     }
     /**
-<<<<<<< HEAD
      * //Serveix per a guardar els paràmetres introduits per l'usuari per a endevinar
-=======
-     * Serveix per a guardar els paràmetres introduits per l'usuari per a endevinar
->>>>>>> roger
      * @return Aquest return guarda les dades introduïdes per l'usuari al mètode d'introduitAposta,
      * i les fa servir en el següents mètodes per calcular la combinació i comprobar encerts.
      * @since 1.0
@@ -97,10 +88,7 @@ public class Main {
         boolean[] numerosUsats = new boolean[50];
         int reintegrament;
         Scanner scanner = new Scanner(System.in);
-<<<<<<< HEAD
 
-=======
->>>>>>> roger
         System.out.println("Introdueix 6 números entre 1 y 49 (sense repetir):");
         for (int i = 0; i < 6; i++) {
             int numero;
@@ -114,10 +102,7 @@ public class Main {
             aposta[i] = numero;
             numerosUsats[numero - 1] = true;
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> roger
         System.out.println("Introdueix un número entre el 0 i 9 per reintegre");
         do {
             System.out.print("Reintegre: ");
@@ -127,29 +112,24 @@ public class Main {
             }
         } while (reintegrament < 0 || reintegrament > 9);
         aposta[6] = reintegrament;
-<<<<<<< HEAD
 
-=======
->>>>>>> roger
         return aposta;
     }
 
     /**
-<<<<<<< HEAD
      * //Genera la combinació guanyadora de la primitiva
-=======
-     * Genera la combinació guanyadora de la primitiva
->>>>>>> roger
      * @return Retorna la combinació guanyadora i el seu reintegrament
      * @since 1.0
      */
     private static int[] calcularCombinacioGuanyadora(){
         int[] combinacio = new int [7];
+
         //TODO: Fer el codi del mètode
         Random random = new Random();
         combinacio[0] = random.nextInt((49 + 1) - 1) + 1;
         for (int i=1; i<6; i++) {
             boolean diff=false;
+
             do {
                 combinacio[i] = random.nextInt((49 + 1) - 1) + 1;
                 for (int j=0; j<i; j++){
@@ -162,17 +142,12 @@ public class Main {
                 }
             }while(!diff);
         }
+
         combinacio[6] = random.nextInt((10));
+
         return combinacio;
     }
-
-    /**
-<<<<<<< HEAD
-     * //Calcula el premi final que s'endú l'usuari
-     * @param aposta  aposta que ha generat o fet l'usuari
-     * @param combinacioGuanyadora La combinació que conté el premi
-     * @return  el premi total que s'endú el guanyador
-=======
+    
      * Calcula el premi final que s'endú l'usuari
      * @param aposta Completar //aposta que ha generat o fet l'usuari
      * @param combinacioGuanyadora Completar// La combinació que conté el premi
@@ -186,10 +161,10 @@ public class Main {
         boolean reintregrament = false;
 
         //Comprobar encerts a la combinació
-<<<<<<< HEAD
-=======
+<<<<<<<<< Temporary merge branch 1
         //TODO: Fer el codi del mètode
->>>>>>> roger
+=========
+>>>>>>>>> Temporary merge branch 2
         for (int i=0; i<6; i++){
             for (int j=0; j<6; j++){
                 if (aposta[i]==combinacioGuanyadora[j]){
@@ -200,10 +175,10 @@ public class Main {
         }
 
         //Comprobar reintegrament
-<<<<<<< HEAD
-=======
+<<<<<<<<< Temporary merge branch 1
         //TODO: Fer el codi del mètode
->>>>>>> roger
+=========
+>>>>>>>>> Temporary merge branch 2
         if (aposta[6]==combinacioGuanyadora[6]){
             reintregrament=true;
         }
@@ -219,8 +194,10 @@ public class Main {
         if (reintregrament){
             premi=premi+6;
         }
+
         return premi;
     }
+
     /**
      * Aquest mètode llegeix un enter per teclat dins d'un domini determinat
      * @param missatge parametritzat per a mostrar a l'usuari@
@@ -247,8 +224,10 @@ public class Main {
                 }
             }
         }while(!valorCorrecte);
+
         return x;
     }
+
     /**
      * Aquest mètode serveix per capturar floats des de teclat amb control d'errors
      * @param missatge
@@ -262,6 +241,7 @@ public class Main {
         do{
             System.out.print(missatge);
             valorCorrecte = llegir.hasNextFloat();
+
             if (!valorCorrecte){
                 System.out.println("ERROR: Valor no float.");
             }else{
@@ -269,11 +249,8 @@ public class Main {
             }
             llegir.nextLine();
         }while(!valorCorrecte);
+
         return x;
     }
-<<<<<<< HEAD
 
 }
-=======
-}
->>>>>>> roger
